@@ -1,2 +1,2 @@
 # hearthealth
-just heart failure prediction
+just heart disease prediction
