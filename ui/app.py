@@ -1,7 +1,4 @@
 import streamlit as st
-from pages.heart_disease_detection import show_heart_disease_detection
-from pages.healthcare_trends import show_healthcare_trends
-from pages.exploratory_analysis import show_exploratory_analysis
 
 # Page configuration
 st.set_page_config(
@@ -28,6 +25,7 @@ st.markdown("""
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 4px;
+        width: 100%;
     }
     .stButton > button:hover {
         background-color: #45a049;
@@ -48,15 +46,6 @@ st.markdown("""
         font-weight: bold;
         margin: 20px 0;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    .page-indicator {
-        text-align: center;
-        color: #2E8B57;
-        font-size: 1.1rem;
-        margin: 10px 0;
-        padding: 5px;
-        background: linear-gradient(90deg, #f0f8f0, #e8f5e8);
-        border-radius: 10px;
     }
     .github-link {
         text-align: center;
@@ -90,6 +79,31 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Beautiful centered title
+st.markdown('<h1 class="beautiful-title">❤️ Heart Disease Prediction System</h1>', unsafe_allow_html=True)
+
+# Main content
+st.markdown("## Welcome to the Heart Disease Prediction System")
+
+st.markdown("""
+This comprehensive machine learning project uses the Cleveland Heart Disease dataset to predict heart disease risk.
+
+### 🚀 Features:
+- **Heart Disease Detection**: Interactive prediction interface
+- **Healthcare Trends**: Statistical analysis and insights
+- **Exploratory Data Analysis**: Deep dive into the dataset
+
+### 📊 Dataset Information:
+The system uses the Cleveland Heart Disease dataset with the following features:
+- Age, Sex, Chest Pain Type
+- Blood Pressure, Cholesterol, Blood Sugar
+- ECG Results, Heart Rate, Exercise Angina
+- ST Depression, Slope, Vessel Count, Thalassemia
+
+### 🔗 Navigation:
+Use the sidebar to navigate between different pages and explore the system's capabilities.
+""")
+
 # Sidebar with GitHub link
 with st.sidebar:
     st.markdown("## 🔗 Project Links")
@@ -112,51 +126,6 @@ with st.sidebar:
     - Interactive web interface
     - Real-time predictions
     """)
-
-# Initialize session state for navigation
-if 'current_page' not in st.session_state:
-    st.session_state.current_page = 'detection'
-
-# Beautiful centered title
-st.markdown('<h1 class="beautiful-title">❤️ Heart Disease Prediction System</h1>', unsafe_allow_html=True)
-
-# Navigation
-col1, col2, col3 = st.columns([1, 2, 1])
-
-with col1:
-    if st.button("← Back"):
-        if st.session_state.current_page == 'trends':
-            st.session_state.current_page = 'detection'
-        elif st.session_state.current_page == 'analysis':
-            st.session_state.current_page = 'trends'
-        st.rerun()
-
-with col2:
-    # Page indicator with better styling
-    page_names = {
-        'detection': '📊 Heart Disease Detection',
-        'trends': '📈 Healthcare Trends', 
-        'analysis': '🔍 Exploratory Data Analysis'
-    }
-    current_page_name = page_names.get(st.session_state.current_page, '')
-    page_number = {'detection': 1, 'trends': 2, 'analysis': 3}[st.session_state.current_page]
-    st.markdown(f'<div class="page-indicator">Page {page_number} of 3: {current_page_name}</div>', unsafe_allow_html=True)
-
-with col3:
-    if st.button("Next →"):
-        if st.session_state.current_page == 'detection':
-            st.session_state.current_page = 'trends'
-        elif st.session_state.current_page == 'trends':
-            st.session_state.current_page = 'analysis'
-        st.rerun()
-
-# Display current page
-if st.session_state.current_page == 'detection':
-    show_heart_disease_detection()
-elif st.session_state.current_page == 'trends':
-    show_healthcare_trends()
-else:
-    show_exploratory_analysis()
 
 # Footer with GitHub link
 st.markdown("""

@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-model = joblib.load("models/svm_heart_model.pkl")
+
 def show_heart_disease_detection():
     """Heart Disease Detection Page"""
     st.title("Heart Disease Detection")
@@ -53,7 +53,7 @@ def show_heart_disease_detection():
 
         # --- Step 2: Load and predict using model
         try:
-            model = joblib.load("../models/svm_heart_model.pkl")
+            model = joblib.load("models/svm_heart_model.pkl")
             prediction = model.predict(input_df)[0]
 
             # --- Step 3: Display result

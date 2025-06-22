@@ -1,0 +1,27 @@
+NGROK SETUP GUIDE
+=================
+
+1. INSTALL NGROK:
+   winget install ngrok.ngrok
+
+2. UPDATE NGROK (if needed):
+   ngrok update
+
+3. CONFIGURE AUTH TOKEN:
+   ngrok config add-authtoken YOUR_AUTH_TOKEN_HERE
+   (Get token from: https://dashboard.ngrok.com/)
+
+4. START STREAMLIT APP:
+   streamlit run ui/app.py
+
+5. CREATE NGROK TUNNEL:
+   ngrok http http://localhost:8501/
+
+6. ACCESS YOUR APP:
+   - Local: http://localhost:8501
+   - Public: https://[ngrok-url].ngrok.io (shown in ngrok output)
+
+NOTES:
+- Keep both Streamlit and ngrok terminals open
+- Free accounts: 4 tunnels, 40 connections/minute
+- URL changes each time you restart ngrok

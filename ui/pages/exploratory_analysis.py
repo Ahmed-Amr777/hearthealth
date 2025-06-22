@@ -17,7 +17,7 @@ def show_exploratory_analysis():
         ]
         
         # Load the processed Cleveland data
-        data = pd.read_csv("../data/processed.cleveland.data", names=columns, na_values='?')
+        data = pd.read_csv("data/processed.cleveland.data", names=columns, na_values='?')
         
         st.subheader("📋 Dataset Overview")
         

@@ -14,7 +14,7 @@ def show_healthcare_trends():
         ]
         
         # Load the processed Cleveland data
-        data = pd.read_csv("../data/processed.cleveland.data", names=columns, na_values='?')
+        data = pd.read_csv("data/processed.cleveland.data", names=columns, na_values='?')
         
         # Calculate actual statistics from the data
         total_patients = len(data)
